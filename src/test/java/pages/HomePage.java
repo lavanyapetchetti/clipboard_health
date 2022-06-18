@@ -8,9 +8,12 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
+
     @FindBy(how=How.ID, using = "nav-hamburger-menu")
     private WebElement hamburger_menu;
-    public void Select_hamburger_menu() {
+
+
+    public void clickOnHamburgerButton() {
         hamburger_menu.click();
     }
 
