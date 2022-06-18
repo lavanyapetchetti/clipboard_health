@@ -25,18 +25,10 @@ public class TvDepartmentPage {
 
 
     public void selectSamSungFromBrands() {
-        try {
-            String URL = driver.getCurrentUrl();
-            driver.navigate().to(URL);
-            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,2600)");
-            ExpectedConditions.visibilityOf(Samsung);
-            Samsung.click();
-        } catch (NoSuchElementException e) {
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-        }
+        String URL = driver.getCurrentUrl();
+        driver.navigate().to(URL);
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,2600)");
+        ExpectedConditions.visibilityOf(Samsung);
+        Samsung.click();
     }
 }

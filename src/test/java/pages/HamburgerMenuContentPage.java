@@ -25,28 +25,11 @@ public class HamburgerMenuContentPage {
     private WebElement hamburger_menu_item_tv_sub;
 
     public void clickOnTvFromMenuItem() {
-        try {
-            hamburger_menu_item_tv.click();
-        } catch (NoSuchElementException e) {
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-        }
+        hamburger_menu_item_tv.click();
     }
 
     public void clickOnTvSubFromMenuItem() {
-        try {
-            ExpectedConditions.visibilityOf(hamburger_menu_item_tv_sub);
-            hamburger_menu_item_tv_sub.click();
-        } catch (NoSuchElementException e) {
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-        }
+        hamburger_menu_item_tv_sub.click();
     }
 
 
