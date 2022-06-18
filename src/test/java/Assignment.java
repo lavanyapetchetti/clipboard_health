@@ -7,7 +7,11 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import pages.HamburgerMenuContentPage;
 import pages.HomePage;
+import pages.ResultsPage;
+import pages.TvDepartmentPage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,18 +24,28 @@ public class Assignment {
     @DisplayName("This test is for demo purpose only to show that the basic code works." +
             "You have to use the best practices that you normally use to design your tests")
     @Test
-    void selectHamburgerMenu() {
+    void TestTvDescriptionForSecondItem() {
+        HomePage home_obj = PageFactory.initElements(driver, HomePage.class);
+        HamburgerMenuContentPage menu_obj = PageFactory.initElements(driver, HamburgerMenuContentPage.class);
+        TvDepartmentPage tv_obj = PageFactory.initElements(driver, TvDepartmentPage.class);
+        ResultsPage res_obj = PageFactory.initElements(driver, ResultsPage.class);
+
         driver.get(HOME_PAGE_URL);
         driver.get("https://www.amazon.in/");
         System.out.print(driver.getTitle());
         assertEquals("Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in", driver.getTitle());
-        HomePage obj = PageFactory.initElements(driver, HomePage.class);
-        obj.Select_hamburger_menu();
+        home_obj.clickOnHamburgerButton();
+        menu_obj.clickOnTvFromMenuItem();
+        menu_obj.clickOnTvSubFromMenuItem();
+        tv_obj.selectSamSungFromBrands();
+        res_obj.clickOnSortDropDown();
+        res_obj.clickOnHighToLowOption();
+        res_obj.clickOnSecondTVFromResults();
     }
 
     @AfterEach
     void tearDown() {
-        driver.close();
+        driver.quit();
     }
 
 }
