@@ -19,9 +19,9 @@ public class Assignment {
     private static final String HOME_PAGE_URL = config.getString("HOME_PAGE_URL");
     private WebDriver driver = DriverFactory.getDriver();
 
-    @Tag("smokeTest")
-    @DisplayName("This test is for demo purpose only to show that the basic code works." +
-            "You have to use the best practices that you normally use to design your tests")
+    @Tag("AssignmentTest")
+    @DisplayName("This test is to select second highest price television from samsung brand.")
+
     @Test
     void TestTvDescriptionForSecondItem() {
         HomePage home_obj = PageFactory.initElements(driver, HomePage.class);
