@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,10 +25,7 @@ public class HamburgerMenuContentPage {
     @FindBy(how = How.XPATH, using= "//*[contains(@class, 'hmenu-item') and text() = 'Televisions']")
     private WebElement hamburger_menu_item_tv_sub;
 
-    public void clickOnTvFromMenuItem() {
-        ExpectedConditions.visibilityOf(hamburger_menu_item_tv);
-        hamburger_menu_item_tv.click();
-    }
+    public void clickOnTvFromMenuItem() { hamburger_menu_item_tv.click(); }
 
     public void clickOnTvSubFromMenuItem() {
         hamburger_menu_item_tv_sub.click();

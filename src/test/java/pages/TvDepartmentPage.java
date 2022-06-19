@@ -9,8 +9,6 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 public class TvDepartmentPage {
     WebDriver driver;
@@ -22,10 +20,13 @@ public class TvDepartmentPage {
     @FindBy(how=How.XPATH, using = "//*[contains(@class, 'a-size-base') and text() = 'Samsung']")
     private WebElement Samsung;
 
+    @FindBy(how=How.XPATH, using = "//*[contains(@class, 'a-size-base') and text() = 'Department']")
+    private WebElement Department;
 
     public void selectSamsungFromBrands() {
         String URL = driver.getCurrentUrl();
-        driver.navigate().to(URL);
+        driver.get(URL);
+        driver.findElement(By.xpath("//*[contains(@class, 'a-size-base') and text() = 'Department']")).isDisplayed();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,2600)");
         ExpectedConditions.visibilityOf(Samsung);
         Samsung.click();
