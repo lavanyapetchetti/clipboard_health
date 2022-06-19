@@ -28,6 +28,9 @@ public class ResultsPage {
     @FindBy(how = How.XPATH, using = "(//*[contains(@class, 's-card-container')])[2]")
     private WebElement secondTv;
 
+    @FindBy(how =How.XPATH, using = " //*[contains(@class, 'a-size-base-plus a-text-bold')]")
+    private WebElement aboutItem;
+    
     @FindBy(how = How.XPATH, using = "//*[contains(@class, 'a-unordered-list a-vertical a-spacing-mini')]")
     private WebElement description;
 
@@ -40,6 +43,7 @@ public class ResultsPage {
     }
 
     public void openSecondTVFromResults() {
+        String item, text;
         String parentHandle = driver.getWindowHandle();
         secondTv.click();
         Set<String> handles = driver.getWindowHandles();
@@ -47,9 +51,9 @@ public class ResultsPage {
             if(!handle.equals(parentHandle)) {
                 driver.switchTo().window(handle);
                 ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,1000)");
-                Boolean Display = driver.findElement((By.xpath("//h1[text()[contains(.,'About this item')]]"))).isDisplayed();
-                assertEquals(true, Display);
-                String text = description.getText();
+                item = aboutItem.getText();
+                assertEquals("About this item", item);
+                text = description.getText();
                 System.out.println(text);
             }
         }
