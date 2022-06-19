@@ -15,7 +15,7 @@ public class HamburgerMenuContentPage {
 
     public HamburgerMenuContentPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 30), this);
     }
 
     @FindBy(linkText="TV, Appliances, Electronics")
@@ -24,13 +24,14 @@ public class HamburgerMenuContentPage {
     @FindBy(how = How.XPATH, using= "//*[contains(@class, 'hmenu-item') and text() = 'Televisions']")
     private WebElement hamburger_menu_item_tv_sub;
 
+
     public void clickOnTvFromMenuItem() {
+        ExpectedConditions.visibilityOf(hamburger_menu_item_tv);
         hamburger_menu_item_tv.click();
     }
 
     public void clickOnTvSubFromMenuItem() {
         hamburger_menu_item_tv_sub.click();
     }
-
 
 }
