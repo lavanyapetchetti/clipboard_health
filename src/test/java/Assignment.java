@@ -11,7 +11,9 @@ import pages.HamburgerMenuContentPage;
 import pages.HomePage;
 import pages.ResultsPage;
 import pages.TvDepartmentPage;
+
 import java.util.concurrent.TimeUnit;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Assignment {
@@ -22,18 +24,22 @@ public class Assignment {
     @Tag("AssignmentTest")
     @DisplayName("This test is to select second highest price television from samsung brand.")
 
+    public void browserLaunch()
+    {
+        driver.get(HOME_PAGE_URL);
+        driver.get("https://www.amazon.in/");
+        assertEquals("Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in", driver.getTitle());
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+    }
+
     @Test
     void TestTvDescriptionForSecondItem() {
         HomePage home_obj = PageFactory.initElements(driver, HomePage.class);
         HamburgerMenuContentPage menu_obj = PageFactory.initElements(driver, HamburgerMenuContentPage.class);
         TvDepartmentPage tv_obj = PageFactory.initElements(driver, TvDepartmentPage.class);
         ResultsPage res_obj = PageFactory.initElements(driver, ResultsPage.class);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-        driver.get(HOME_PAGE_URL);
-        driver.get("https://www.amazon.in/");
-        assertEquals("Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in", driver.getTitle());
-
+        browserLaunch();
         home_obj.clickOnHamburgerButton();
         menu_obj.clickOnTvFromMenuItem();
         menu_obj.clickOnTvSubFromMenuItem();
