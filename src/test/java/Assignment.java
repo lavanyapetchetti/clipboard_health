@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import pages.HamburgerMenuContentPage;
 import pages.HomePage;
 import pages.ResultsPage;
@@ -32,15 +31,14 @@ public class Assignment {
 
         driver.get(HOME_PAGE_URL);
         driver.get("https://www.amazon.in/");
-        System.out.print(driver.getTitle());
         assertEquals("Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in", driver.getTitle());
         home_obj.clickOnHamburgerButton();
         menu_obj.clickOnTvFromMenuItem();
         menu_obj.clickOnTvSubFromMenuItem();
-        tv_obj.selectSamSungFromBrands();
+        tv_obj.selectSamsungFromBrands();
         res_obj.clickOnSortDropDown();
         res_obj.clickOnHighToLowOption();
-        res_obj.clickOnSecondTVFromResults();
+        res_obj.openSecondTVFromResults();
     }
 
     @AfterEach
