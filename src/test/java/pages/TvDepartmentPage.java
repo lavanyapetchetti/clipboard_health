@@ -9,7 +9,6 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
