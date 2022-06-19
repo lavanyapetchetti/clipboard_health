@@ -11,9 +11,7 @@ import pages.HamburgerMenuContentPage;
 import pages.HomePage;
 import pages.ResultsPage;
 import pages.TvDepartmentPage;
-
 import java.util.concurrent.TimeUnit;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Assignment {
