@@ -26,10 +26,10 @@ public class Assignment {
 
     public void browserLaunch()
     {
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
         driver.get(HOME_PAGE_URL);
         driver.get("https://www.amazon.in/");
         assertEquals("Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in", driver.getTitle());
-        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
     }
 
     @Test
